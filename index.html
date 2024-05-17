@@ -530,10 +530,18 @@
 
                     </div>
 
+                    <!-- Popup container -->
+                    <div id="popup" class="popup">
+                        <div class="popup-content">
+                            <span class="close">&times;</span>
+                            <img src="" alt="Project Preview" id="popup-img">
+                        </div>
+                    </div>
+
                     <ul class="project-list">
 
-                        <li class="project-item  active" data-filter-item data-category="web development">
-                            <a href="osucsegms.html">
+                        <li class="project-item active" data-filter-item data-category="web development">
+                            <a href="#" class="preview-link" data-img-src="./assets/images/project-1.jpg">
 
                                 <figure class="project-img">
                                     <div class="project-item-icon-box">
@@ -550,8 +558,8 @@
                             </a>
                         </li>
 
-                        <li class="project-item  active" data-filter-item data-category="web development">
-                            <a href="moviedate.html">
+                        <li class="project-item active" data-filter-item data-category="web development">
+                            <a href="#" class="preview-link" data-img-src="./assets/images/project-2.png">
 
                                 <figure class="project-img">
                                     <div class="project-item-icon-box">
@@ -568,8 +576,8 @@
                             </a>
                         </li>
 
-                        <li class="project-item  active" data-filter-item data-category="mobile development">
-                            <a href="homies.html">
+                        <li class="project-item active" data-filter-item data-category="mobile development">
+                            <a href="#" class="preview-link" data-img-src="./assets/images/project-3.jpg">
 
                                 <figure class="project-img">
                                     <div class="project-item-icon-box">
@@ -842,6 +850,48 @@
     -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get the popup
+            var popup = document.getElementById("popup");
+            var popupImg = document.getElementById("popup-img");
+    
+            // Get all links that open the popup
+            var links = document.getElementsByClassName("preview-link");
+    
+            // Get the <span> element that closes the popup
+            var span = document.getElementsByClassName("close")[0];
+    
+            // Function to open the popup with the appropriate image
+            function openPopup(event) {
+                event.preventDefault();
+                var imgSrc = this.getAttribute("data-img-src");
+                popupImg.src = imgSrc;
+                popup.style.display = "block";
+            }
+    
+            // Add click event to each link
+            for (var i = 0; i < links.length; i++) {
+                links[i].onclick = openPopup;
+            }
+    
+            // When the user clicks on <span> (x), close the popup
+            span.onclick = function() {
+                popup.style.display = "none";
+                popupImg.src = ""; // Clear the image source
+            }
+    
+            // When the user clicks anywhere outside of the popup, close it
+            window.onclick = function(event) {
+                if (event.target == popup) {
+                    popup.style.display = "none";
+                    popupImg.src = ""; // Clear the image source
+                }
+            }
+        });
+    </script>    
+    
 
 </body>
 
