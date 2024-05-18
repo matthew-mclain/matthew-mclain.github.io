@@ -1913,11 +1913,10 @@ textarea.form-input::-webkit-resizer { display: none; }
     top: 50%;
     transform: translate(-50%, -50%); /* Center it within the parent */
     background-color: transparent; /* Make the background transparent if no background is needed */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Adjust or remove as needed */
     border: none; /* Remove the border */
     border-radius: 0; /* Remove border radius if you want square corners */
-    max-width: 90%;
-    max-height: 90%;
+    height: 80%;
+    width: 90%;
     overflow: auto;
     padding: 0; /* Remove padding */
     margin: 0; /* Remove margin */
